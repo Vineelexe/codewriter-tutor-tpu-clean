@@ -1,4 +1,4 @@
-@"
+@'
 # Python
 __pycache__/
 *.py[cod]
@@ -22,10 +22,12 @@ pytest-tmp-*/
 tests/_tmp*/
 phase16_tmp_check/
 
-# Outputs/artifacts
-outputs/
-data/
-exported_model_test/
+# Root-only outputs/artifacts
+/outputs/
+/data/
+/exported_model_test/
+
+# Large artifacts anywhere
 *.npy
 *.npz
 *.pt
@@ -43,4 +45,4 @@ exported_model_test/
 Thumbs.db
 .vscode/
 .idea/
-"@ | Set-Content .gitignore
+'@ | Set-Content -Encoding UTF8 .gitignore

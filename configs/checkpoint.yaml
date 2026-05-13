@@ -1,0 +1,9 @@
+config_type: checkpoint
+naming_template: "cw360_{model_size}_step{step:08d}_loss{loss:.3f}_stage_{training_stage}_train_{trainer}_{date}_{platform}.pt"
+never_overwrite: true
+require_metadata_json: true
+require_data_snapshot_metadata: true
+require_tpu_prepack_cursor: true
+valid_trainers:
+  - vineel
+  - sarang

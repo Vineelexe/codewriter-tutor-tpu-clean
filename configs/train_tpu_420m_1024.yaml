@@ -1,0 +1,66 @@
+config_type: train
+training_stage: base_pretrain
+platform: kaggle-tpu-background
+model_config_path: configs/model_420m.yaml
+tokenizer_id: bigcode/starcoder2-15b
+max_seq_len: 1024
+global_batch_size: 128
+micro_batch_size: 16
+fixed_batch_size: 16
+gradient_accumulation_steps: 1
+learning_rate: 0.00025
+weight_decay: 0.1
+max_steps: 100000
+warmup_steps: 1000
+schedule_type: wsd
+stable_steps: null
+min_lr_ratio: 0.1
+max_grad_norm: 1.0
+optimizer: adamw
+precision: bf16
+drop_last: true
+static_shapes: true
+dynamic_padding: false
+gradient_checkpointing: true
+torch_compile: false
+dataloader_num_workers: 2
+prefetch_factor: 2
+persistent_workers: false
+prepacked_shards_path: /kaggle/input/cw360-prepacked-1024
+prepacked_dataset_path: /kaggle/input/cw360-prepacked-1024
+prepacked_manifest_path: /kaggle/input/cw360-prepacked-1024/manifest.json
+shard_manifest_hash_expected: null
+checkpoint_dir: /kaggle/working/checkpoints
+checkpoint_interval_minutes: 30
+checkpoint_interval_steps: 500
+eval_interval_steps: 1000
+eval_interval_minutes: 60
+save_every_n_minutes: 30
+session_time_limit_minutes: 510
+save_before_exit_margin_minutes: 20
+save_before_exit_minutes: 20
+shard_order_seed: 20260511
+trained_by: vineel
+trainer_name: vineel
+data_snapshot:
+  required: true
+  source: prepacked_manifest
+  require_data_snapshot_hash: true
+  require_prepacked_manifest_hash: true
+  require_shard_manifest_hash: true
+  require_train_val_test_splits: true
+tpu_data_cursor:
+  enabled: true
+  require_exact_resume: true
+  required_fields:
+    - epoch
+    - shard_order_seed
+    - shard_index
+    - sequence_offset
+    - consumed_sequences
+    - tokens_seen
+durable_checkpoint_store:
+  type: hf_model_repo
+  repo_id: null
+  path_prefix: checkpoints/420m-1024
+  private: true

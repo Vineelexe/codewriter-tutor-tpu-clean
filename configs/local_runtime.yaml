@@ -1,0 +1,7 @@
+config_type: runtime
+platform: local-cpu-test
+device: cpu
+target_cpu: i7_10th_gen
+target_ram_gb: 16
+local_training_scope: tiny_tests_only
+full_model_training_local: false

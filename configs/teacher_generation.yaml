@@ -1,0 +1,26 @@
+config_type: teacher_generation
+teacher_generation:
+  run_id: parent_llm_structuring_001
+  provider: mock
+  model: mock-teacher
+  offline_only: true
+  allowed_use: parent_llm_structuring_before_instruction_tuning_or_prepacking
+  max_requests_per_run: 2000
+  max_concurrency: 4
+  max_retries: 5
+  timeout_seconds: 60
+  temperature: 0.2
+  max_output_tokens: 1200
+  dry_run: false
+  estimate_only: false
+storage:
+  type: hf_dataset_repo
+  repo_id: YOUR_USERNAME/codewriter-tutor-synthetic
+  private: true
+  upload_every_n_examples: 100
+  shard_size: 1000
+  local_temp_dir: /tmp/cw360_teacher
+  delete_local_after_upload: true
+inputs:
+  candidate_shards:
+    - outputs/candidates_test/candidates.jsonl

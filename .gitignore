@@ -1,0 +1,46 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Caches/temp
+.uv-cache/
+.pytest-tmp-*/
+pytest-tmp-*/
+tests/_tmp*/
+phase16_tmp_check/
+
+# Outputs/artifacts
+outputs/
+data/
+exported_model_test/
+*.npy
+*.npz
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+*.ckpt
+*.zip
+*.tar
+*.tar.gz
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+"@ | Set-Content .gitignore

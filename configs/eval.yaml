@@ -1,0 +1,17 @@
+config_type: eval
+platform: local-cpu-test
+model_config_path: configs/model_tiny.yaml
+prompt_paths:
+  - eval_prompts/core_prompts.jsonl
+  - eval_prompts/extended_prompts.jsonl
+output_dir: outputs/eval
+temperature: 0.0
+max_new_tokens: 128
+training_stage: eval_only
+model_size_label: tiny
+data_snapshot: not_trained_random_baseline
+notes: fixed pre-training evaluation prompts for Python code writing, debugging, and tutoring
+tasks:
+  - python_code_completion
+  - python_debugging
+  - tutoring_response_quality

@@ -1,0 +1,52 @@
+config_type: datasets
+structured_synthetic_repo: private-hf-dataset-placeholder
+prepacked_kaggle_dataset: private-kaggle-dataset-placeholder
+local_cache_dir: .cache/cw360
+no_large_local_processed_datasets: true
+sources:
+  stack_v2_python:
+    dataset_id: bigcode/the-stack-v2
+    subset: Python
+    split: train
+    streaming: true
+    extractor: stack_v2_python
+    gated: true
+    max_preview_examples: 20
+  codesearchnet_python:
+    dataset_id: code_search_net
+    subset: python
+    split: train
+    streaming: true
+    extractor: codesearchnet_python
+    max_preview_examples: 20
+  debugbench:
+    dataset_id: DebugBench/DebugBench
+    split: train
+    streaming: true
+    extractor: debugbench
+    max_preview_examples: 20
+  fineweb_edu:
+    dataset_id: HuggingFaceFW/fineweb-edu
+    subset: sample-10BT
+    split: train
+    streaming: true
+    extractor: fineweb_edu
+    max_preview_examples: 20
+  cosmopedia_cs:
+    dataset_id: HuggingFaceTB/cosmopedia
+    subset: stories
+    split: train
+    streaming: true
+    extractor: cosmopedia_cs
+    topic_filter: cs_algorithms
+    max_preview_examples: 20
+  synthetic:
+    local_path: tests/fixtures/synthetic_preview.jsonl
+    split: train
+    streaming: true
+    extractor: synthetic
+    max_preview_examples: 20
+    local_preview_only: true
+    remote_structured_shards: private-hf-dataset-placeholder
+    generated_offline_before_prepack: true
+    parent_teacher_calls_in_tpu_loop: false

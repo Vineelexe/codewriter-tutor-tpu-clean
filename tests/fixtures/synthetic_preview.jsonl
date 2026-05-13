@@ -1,0 +1,3 @@
+{"text": "def add(a, b):\n    return a + b", "source": "synthetic", "example_type": "python_tutoring", "metadata": {"id": "preview-1"}}
+{"text": "Explain why a Python dictionary gives average-case constant-time lookup.", "source": "synthetic", "example_type": "python_tutoring", "metadata": {"id": "preview-2"}}
+{"text": "Traceback: ValueError: invalid literal for int()\nbuggy_code:\nint('x')\nfixed_code:\ntry:\n    int(value)\nexcept ValueError:\n    pass", "source": "synthetic", "example_type": "debugging_case", "metadata": {"id": "preview-3"}}

@@ -1,0 +1,51 @@
+config_type: prepack
+platform: cloud-cpu-prepack
+status: later_after_1024_benchmarking
+later_stage_only: true
+stage_gate: after_1024_benchmarking
+prepack:
+  dataset_name: cw-tutor-prepacked-2048-v1
+  dataset_version: v1
+  model_size_target: selectable
+  tokenizer_id: bigcode/starcoder2-15b
+  max_seq_len: 2048
+  seq_len_plus_one: 2049
+  token_dtype: uint16
+  shard_format: npy
+  shard_num_sequences: 25000
+  rolling_shuffle_buffer_sequences: 500000
+  rolling_shuffle_buffer_memory_guard: true
+  rolling_shuffle_buffer_max_ram_fraction: 0.25
+  minimum_shuffle_buffer_sequences: 100000
+  output_dir: outputs/tpu_shards_2048
+  seed: 1337
+  drop_incomplete_sequence: true
+  verify_uint16: true
+  write_per_shard_metadata: true
+  write_global_manifest: true
+  write_kaggle_dataset_metadata: true
+  kaggle_owner: vineel
+mixture:
+  stack_v2_python: 0.30
+  codesearchnet_python: 0.25
+  debugbench_and_structured_debugging: 0.20
+  structured_synthetic_instructions: 0.15
+  fineweb_edu: 0.05
+  cosmopedia_cs_algorithms: 0.05
+splits:
+  train_fraction: 0.98
+  val_fraction: 0.01
+  test_fraction: 0.01
+  split_by: stable_hash
+  synthetic_split_key: source_candidate_id
+quality:
+  tier_a_weight: 1.0
+  tier_b_weight: 0.5
+  rescue_policy: excerpt_or_skip_with_report
+validation:
+  shard_mixture_tolerance_abs: 0.03
+  fail_on_token_overflow: true
+  fail_on_empty_shard: true
+  fail_on_missing_manifest: true
+  fail_if_split_fractions_do_not_sum_to_one: true
+  fail_if_atomic_examples_cross_sequence_boundary: true

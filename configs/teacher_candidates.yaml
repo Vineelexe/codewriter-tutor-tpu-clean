@@ -1,0 +1,21 @@
+config_type: teacher_candidates
+offline_only: true
+allowed_use: structured_synthetic_data_generation_before_prepacking
+dataset_config: configs/datasets.yaml
+min_score: 0.70
+max_input_tokens: 1600
+min_input_tokens: 80
+max_candidates_per_source:
+  stack_v2_python: 5000
+  codesearchnet_python: 5000
+  debugbench: 5000
+task_mix:
+  code_writing: 0.22
+  debugging: 0.28
+  explanation: 0.22
+  comments: 0.10
+  refactor: 0.08
+  tests: 0.10
+output_format: jsonl
+remote_upload:
+  enabled: false

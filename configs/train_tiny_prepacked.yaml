@@ -1,0 +1,19 @@
+config_type: train
+training_stage: base_pretrain
+platform: local-cpu-test
+model_config_path: configs/model_tiny_tpu.yaml
+max_seq_len: 1024
+micro_batch_size: 1
+gradient_accumulation_steps: 1
+learning_rate: 0.0003
+max_steps: 2
+warmup_steps: 0
+max_grad_norm: 1.0
+local_cpu_train_seq_len: 64
+drop_last: true
+static_shapes: true
+prepacked_shards_path: data/prepacked_tiny
+data_snapshot:
+  required: true
+  source: tiny_prepacked_manifest
+  require_data_snapshot_hash: true

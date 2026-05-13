@@ -1,0 +1,20 @@
+torch>=2.2
+transformers>=4.40
+datasets>=2.18
+safetensors>=0.4
+huggingface_hub>=0.22
+pyyaml>=6.0
+pydantic>=2.5
+tqdm>=4.66
+numpy>=1.26
+httpx>=0.27
+tenacity>=8.2
+psutil>=5.9
+
+# Optional TPU dependency:
+# Install torch-xla only in Kaggle/TPU environments with the matching PyTorch/XLA build.
+# Do not require torch_xla for local CPU tests.
+
+# Optional CLIs/providers for later phases:
+# kaggle
+# google-genai

@@ -1,0 +1,7 @@
+config_type: export
+platform: local-cpu-test
+ladder:
+  - pytorch_cpu_inference
+  - safetensors_export
+  - optional_int8_dynamic_quantization
+gguf_status: optional_not_promised
